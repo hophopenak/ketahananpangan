@@ -250,6 +250,31 @@ folium.GeoJson(
     )
 ).add_to(m)
 
+# ===== LEGENDA =====
+legend_html = """
+<div style="
+position: fixed;
+bottom: 30px;
+left: 30px;
+z-index: 9999;
+background-color: white;
+padding: 14px 18px;
+border-radius: 14px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+font-size: 14px;
+">
+<b>Legenda Ketahanan Pangan</b><br><br>
+<div><span style="background:#1B4332;width:18px;height:18px;display:inline-block;margin-right:8px;"></span>Sangat Tahan</div>
+<div><span style="background:#52B69A;width:18px;height:18px;display:inline-block;margin-right:8px;"></span>Agak Tahan</div>
+<div><span style="background:#FFD166;width:18px;height:18px;display:inline-block;margin-right:8px;"></span>Tahan</div>
+<div><span style="background:#F4A261;width:18px;height:18px;display:inline-block;margin-right:8px;"></span>Agak Rentan</div>
+<div><span style="background:#E63946;width:18px;height:18px;display:inline-block;margin-right:8px;"></span>Rentan</div>
+<div><span style="background:#8B0000;width:18px;height:18px;display:inline-block;margin-right:8px;"></span>Sangat Rentan</div>
+<small><i>Hasil klasterisasi SOM</i></small>
+</div>
+"""
+m.get_root().html.add_child(folium.Element(legend_html))
+
 st_folium(m, width=1100, height=620)
 
 st.caption(
